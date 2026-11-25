@@ -40,23 +40,23 @@ public class Astronaut extends MovableAnimatedActor
         leftwalk.setBounds(12, 8, 88, 76);
         setWalkLeftAnimation(leftwalk);
         
-        String[] ide = new String[10];
-        for (int i =1; i < 11; i++){
-            ide[i-1] = "imgs/img/cat/Idle (" + (i) + ").png";
+        String[] ide = new String[4];
+        for (int i =0; i < 4; i++){
+            ide[i] = "imgs/AstronautFrames/AIdle/AIdle" + (i) + ".png";
         }
         idle = new Animation(50, ide);
         idle.scale(100,87);
-        idle.setBounds(18, 5, 54, 80);
+        idle.setBounds(0, 8, 88, 76);
         setIdleAnimation(idle);
         
-        String[] ideL = new String[10];
-        for (int i =1; i < 11; i++){
-            ideL[i-1] = "imgs/img/cat/Idle (" + (i) + ").png";
+        String[] ideL = new String[4];
+        for (int i =0; i < 4; i++){
+            ideL[i] = "imgs/AstronautFrames/AIdle/AIdle" + (i) + ".png";
         }
         idleL = new Animation(50, ideL);
         idleL.scale(100,87);
         idleL.mirrorHorizontally();
-        idleL.setBounds(28, 5, 54, 80);
+        idleL.setBounds(12, 8, 88, 76);
         setIdleLeftAnimation(idleL);
         
         String[] fallR = new String[6];
