@@ -1,7 +1,7 @@
 package MayflowerReferenced;
 
 import mayflower.*;
-
+//all straight up from the labs/Varsha I lost track
 public class Animation {
     // instance variables - replace the example below with your own
     private MayflowerImage[] frames;

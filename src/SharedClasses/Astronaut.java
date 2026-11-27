@@ -1,11 +1,16 @@
-package MayflowerReferenced;
+package SharedClasses;
 
+
+import MayflowerReferenced.Animation;
+import MayflowerReferenced.MovableAnimatedActor;
 import mayflower.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+//all Varsha
+//want to change the bounds eventuall tho
 public class Astronaut extends MovableAnimatedActor {
     private Animation walk;
     private Animation idle;
@@ -15,8 +20,7 @@ public class Astronaut extends MovableAnimatedActor {
     private Animation fallingL;
     private Animation jumpingR;
     private Animation jumpingL;
-    private Animation jumpFallingR;
-    private Animation jumpFallingL;
+
 
     public Astronaut() {
 
@@ -99,6 +103,7 @@ public class Astronaut extends MovableAnimatedActor {
         setJumpingLeftAnimation(jumpingL);
 
     }
+    
 
     public void act() {
         super.act();

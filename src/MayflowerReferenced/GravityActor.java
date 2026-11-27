@@ -2,11 +2,12 @@ package MayflowerReferenced;
 
 import mayflower.*;
 
+//all straight up from the labs/Varsha I lost track
 public class GravityActor extends Actor {
     private int jumpFramesLeft;
     private int jumpSpeed;
     private int jumpDuration;
-
+    
     public GravityActor() {
         jumpFramesLeft = 0;
         jumpSpeed = 4;

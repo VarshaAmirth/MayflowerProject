@@ -1,5 +1,6 @@
 package MayflowerReferenced;
 
+import Frozen.Section;
 import mayflower.*;
 
 public class MovableAnimatedActor extends AnimatedActor {
@@ -17,9 +18,12 @@ public class MovableAnimatedActor extends AnimatedActor {
     //private Animation jumpFallingLeft;
     private boolean fallFromJump;
 
+    //Anika changes for frames down at ~140
+
     public MovableAnimatedActor() {
         direction = "right";
         fallFromJump = false;
+
     }
 
     public void act() {
@@ -92,7 +96,10 @@ public class MovableAnimatedActor extends AnimatedActor {
         // actually codes the animaion + if on edge, stops from moving
         int xright = getX() + w;
         int ydown = getY() + h;
-        MyWorld world = (MyWorld) getWorld();
+        Section world = (Section) getWorld();
+        int next = 0;
+
+        //if it is at the left edge and a border
         if (xright >= 800 && !world.isRightAvailable()) 
         {
             setLocation(x - 1, y);
@@ -134,15 +141,26 @@ public class MovableAnimatedActor extends AnimatedActor {
         {
             setLocation(x, y + 1);
         }
-        else if(xright >= 800 && world.isRightAvailable())
-        {
-            Mayflower.setWorld(new MyWorld((Astronaut)this, true, true, false, false));
-            setLocation(1,y);
-        }
-        else if(x <= 0 && world.isLeftAvailable())
-        {
-            Mayflower.setWorld(new MyWorld((Astronaut)this, true, true, false, false));
-            setLocation(799-w,y);
+        //right edge but available
+        else if (xright >= 800 && world.isRightAvailable()) {
+            //gets the number for the panel next to it
+            //makes a new section based off of that number
+            //re adds the astronaut to that world
+            //changes the world to the next one
+            //sets location?? probably redundant
+
+            next = world.getRight();
+            Section nextWorld = new Section(next);
+            nextWorld.addObject(this, 1, y);
+            Mayflower.setWorld(nextWorld);
+            setLocation(1, y);
+
+        } else if (x <= 0 && world.isLeftAvailable()) {
+            next = world.getLeft();
+            Section nextWorld = new Section(next);
+            nextWorld.addObject(this, 799-w, y);
+            Mayflower.setWorld(nextWorld);
+            setLocation(799-w, y);
         }
 
         // change each animation
@@ -224,13 +242,5 @@ public class MovableAnimatedActor extends AnimatedActor {
     public void setJumpingLeftAnimation(Animation ani) {
         jumpLeft = ani;
     }
-    /*
-    public void setJumpFallingRightAnimation(Animation ani) {
-        jumpFallingRight = ani;
-    }
 
-    public void setJumpFallingLeftAnimation(Animation ani) {
-        jumpFallingLeft = ani;
-    }
-    */
 }

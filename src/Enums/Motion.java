@@ -1,5 +1,5 @@
 package Enums;
 
-public class Motion {
-    
+public enum Motion {
+    IDLE, FALLING, WALKING, JUMPING
 }

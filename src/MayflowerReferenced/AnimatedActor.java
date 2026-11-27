@@ -1,6 +1,6 @@
 package MayflowerReferenced;
 import mayflower.*;
-
+//from labs/Varsha
 public class AnimatedActor extends GravityActor {
     // instance variables - replace the example below with your own
     private Animation animation;

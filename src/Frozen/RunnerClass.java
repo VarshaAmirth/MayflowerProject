@@ -1,4 +1,4 @@
-package MayflowerReferenced;
+package Frozen;
 
 public class RunnerClass
 {
